@@ -1,0 +1,14 @@
+.body {
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 1em;
+    padding: 1em 2em;
+    border: 1px solid black;
+    width: 60%;
+    margin: 0.5em 0;
+    color:white;
+    background-size:cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
