@@ -1,6 +1,6 @@
-import {CategoryInterface} from "@./Interface";
+import {CategoryInterface} from "./Interface";
 
-export const productsList: CategoryInterface[] = [
+const categories: CategoryInterface[] = [
     {
         id:'1',
         title: "Burger",
@@ -17,3 +17,5 @@ export const productsList: CategoryInterface[] = [
         image: '../../assets/beverage-default.jpeg',
     }
 ];
+
+export default categories;
