@@ -1,22 +1,22 @@
 import React, {useContext} from "react";
 import style from "./CartTotal.module.css";
-import cartContext from "../../store/cart-context";
+import CartContext from "@/store/CartContext";
 
 function CartTotal() {
-    const ctx = useContext(cartContext)
+    const {cartState} = useContext(CartContext)
     let cartItems = 0;
     let total = 0;
-    if(ctx !== null) {
-        cartItems = ctx.products.length
-        total = ctx.total
+    if(cartState !== undefined && cartState.products !== undefined) {
+        cartItems = cartState.products.length
+        total = cartState.total
     }
     return (
-        <div className={style.cartHeader}>
-            <div className={style.cartInfo}>
-                <div>
+        <div className="cart">
+            <div className="cart__content">
+                <div className="cart__content-price">
                     Items: {cartItems}
                 </div>
-                <div>
+                <div className="cart__content-total" >
                     Total: {total.toFixed(2)} €
                 </div>
             </div>

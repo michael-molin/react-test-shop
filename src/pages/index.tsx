@@ -37,18 +37,17 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className={styles.main}>
-        <div className="App">
           <CartProvider>
             <Header />
-            <div className="return-to-main-menu">
+            <div className={styles.main_return}>
               {category !== '' && <a  onClick={ () => setCategory('noList')}>Return to Main Menu</a>}
             </div>
-            <div className="App-body">
+            <div className={styles.main_container}>
               {category === '' && categories.map(category => (
                   <Category key={category.id} title={category.title} image={category.image} handlerClick={setCategory} />
               ))}
               {(category !== '' && productsToShow !== null) &&
-                  <div className={'name'}>
+                  <div className="main_products">
                       {productsToShow.map((product => (
                           <Product key={product.id} id={product.id} price={product.price} image={product.image} description={product.description} name={product.name} />
                           )))
@@ -57,7 +56,6 @@ export default function Home() {
               }
             </div>
           </CartProvider>
-      </div>
       </main>
     </>
   )

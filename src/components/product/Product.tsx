@@ -3,10 +3,11 @@ import styles from './Product.module.css'
 import Image from 'next/image'
 import {ProductInterface} from "./Interface";
 import dispatchContext from "@/store/DispatchContext";
+import CartContext from "@/store/CartContext";
 
 function Product({id, image, name, description, price}: ProductInterface) {
-    const dispatch = useContext(dispatchContext);
-    const onClickHandler: Function = () => {
+    const {dispatch} = useContext(CartContext);
+    const onClickHandler: any = () => {
         const product : ProductInterface ={
             name : name,
             image : image,
@@ -14,25 +15,26 @@ function Product({id, image, name, description, price}: ProductInterface) {
             price : price,
             id : id
         }
+
         dispatch({type: 'ADD_TO_CART', product})
     };
 
     return (
-        <div className={styles.card}>
-            <Image src="@/../src/assets/default-burger.jpeg" className={styles.card_image} alt=""/>
-            <div className={styles.card_overlay}>
-                <div className={styles.card_headerContainer}>
-                    <div className={styles.card_header_text}>
-                        <div className={styles.card_titleContainer}>
-                            <h3 className={styles.card_title}>{name}</h3>
-                            <span className={styles.card_price}>{price} €</span>
+        <div className="card">
+            <img src="/src/assets/default-burger.jpeg"  className="card_image" alt=""/>
+            <div className="card_overlay">
+                <div className="card_container">
+                    <div className="card_container_header">
+                        <div className="card_container_header_container">
+                            <h3 className="card_container_header_container-name">{name}</h3>
+                            <span className="card_container_header_container-price">{price} €</span>
                         </div>
                     </div>
                 </div>
-                <p className={styles.card_description}>
+                <p className="card_description">
                     {description}
                 </p>
-                <button className={styles.button} onClick={onClickHandler}>
+                <button className="card_button" onClick={onClickHandler}>
                     Add to Cart
                 </button>
             </div>

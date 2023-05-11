@@ -52,7 +52,7 @@
     transform: translateY(0);
 }
 
-button {
+.button {
     padding: 1em 2em;
     border: 0;
     margin: 1em 0;
@@ -63,12 +63,12 @@ button {
     transition: all 0.5s;
 }
 
-button:hover {
+.button:hover {
     background-color: #6fc5ff;
     box-shadow: 0 0 20px #6fc5ff50;
 }
 
-button:active {
+.button:active {
     background-color: #3d94cf;
     transition: all 0.25s;
     box-shadow: none;

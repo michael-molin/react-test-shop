@@ -1,14 +1,13 @@
 import React from "react";
-import styles from './Header.module.css';
 import CartTotal from "../cart/cartTotal/CartTotal";
 function Header() {
     return (
-        <div className={styles.header}>
-            <div className={styles.header_element}>Logo</div>
-            <div className={styles.header_element}>
+        <div className="header">
+            <div className="header_element">Logo</div>
+            <div className="header_element">
                 <strong>Header</strong>
             </div>
-            <div className={styles.header_element}>
+            <div className="header_element">
                 <CartTotal />
             </div>
         </div>
