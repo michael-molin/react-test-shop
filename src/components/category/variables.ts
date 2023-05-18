@@ -4,17 +4,17 @@ const categories: CategoryInterface[] = [
     {
         id:'1',
         title: "Burger",
-        image: "../../assets/burger-default.jpeg",
+        image: "/assets/default-burger.jpeg",
     },
     {
         id : '2',
         title: 'Fries',
-        image: '../../assets/fries-default.jpg',
+        image: '/assets/default-burger.jpeg',
     },
     {
         id : '3',
         title: 'Beverage',
-        image: '../../assets/beverage-default.jpeg',
+        image: '/assets/default-burger.jpeg',
     }
 ];
 

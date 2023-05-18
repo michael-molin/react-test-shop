@@ -1,0 +1,14 @@
+.cartTotal {
+    color:black;
+}
+
+.cartHeader {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.cartInfo {
+    display:flex;
+    flex-direction: column;
+}

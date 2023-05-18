@@ -1,11 +1,10 @@
 import {useEffect, useState} from "react";
 import Head from 'next/head'
 import { Inter } from 'next/font/google'
-import styles from '@/styles/Home.module.css'
+import styles from '@/styles/Home.module.scss'
 import categories from '@/components/category/variables'
 import Category from "@/components/category/Category";
 import {ProductInterface} from "@/components/product/Interface";
-import {CategoryInterface} from "@/components/category/Interface";
 import {burgerList, friesList, beverageList} from '@/components/product/variables'
 import Header from "@/components/header/Header";
 import CartProvider from "@/store/CartProvider";
@@ -40,14 +39,14 @@ export default function Home() {
           <CartProvider>
             <Header />
             <div className={styles.main_return}>
-              {category !== '' && <a  onClick={ () => setCategory('noList')}>Return to Main Menu</a>}
+              {(category !== '') && <a  onClick={ () => setCategory('')}>Return to Main Menu</a>}
             </div>
             <div className={styles.main_container}>
-              {category === '' && categories.map(category => (
+              {(category === '') && categories.map(category => (
                   <Category key={category.id} title={category.title} image={category.image} handlerClick={setCategory} />
               ))}
               {(category !== '' && productsToShow !== null) &&
-                  <div className="main_products">
+                  <div className={styles.main_products}>
                       {productsToShow.map((product => (
                           <Product key={product.id} id={product.id} price={product.price} image={product.image} description={product.description} name={product.name} />
                           )))

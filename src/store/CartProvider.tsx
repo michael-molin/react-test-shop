@@ -13,11 +13,15 @@ const defaultCartState : cartInterface = {
     total: 0
 }
 
-const CartProvider = (props : any) => {
+type Props = {
+    children: string | JSX.Element | JSX.Element[]
+}
+
+const CartProvider  = ({children} : Props) => {
     const [cartState, dispatch] = useReducer(cartReducer, defaultCartState)
     return (
         <CartContext.Provider value={{cartState, dispatch }}>
-            {props.children}
+            {children}
         </CartContext.Provider>
     )}
 

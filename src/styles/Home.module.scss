@@ -1,0 +1,46 @@
+.main {
+  text-align: center;
+  background-color: #282c34;
+
+  &_return {
+    height: 1em;
+    margin: 1em 0;
+    font-size: .8em;
+    a {
+      text-decoration: none;
+      color:white;
+    }
+  }
+
+  &_container {
+    min-height: calc(100vh - 3em);
+    display: flex;
+    position:relative;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 2em;
+    color: white;
+  }
+
+  &_products {
+    width: 80%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-around;
+    align-content: center;
+    flex-wrap: wrap;
+  }
+
+  @media screen and (min-width: 1280px) {
+    .main{
+      &_products {
+        justify-content: start;
+      }
+    }
+  }
+
+}
+.App-link {
+  color: #61dafb;
+}

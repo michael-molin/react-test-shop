@@ -1,5 +1,4 @@
 import React, {useContext} from "react";
-import style from "./CartTotal.module.css";
 import CartContext from "@/store/CartContext";
 
 function CartTotal() {

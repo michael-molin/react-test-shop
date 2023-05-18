@@ -1,13 +1,11 @@
-import React, {useContext} from 'react';
-import styles from './Product.module.css'
-import Image from 'next/image'
+import React, {MouseEventHandler, useContext} from 'react';
 import {ProductInterface} from "./Interface";
-import dispatchContext from "@/store/DispatchContext";
 import CartContext from "@/store/CartContext";
+import styles from './Product.module.scss';
 
 function Product({id, image, name, description, price}: ProductInterface) {
     const {dispatch} = useContext(CartContext);
-    const onClickHandler: any = () => {
+    const onClickHandler: MouseEventHandler = () => {
         const product : ProductInterface ={
             name : name,
             image : image,
@@ -20,23 +18,25 @@ function Product({id, image, name, description, price}: ProductInterface) {
     };
 
     return (
-        <div className="card">
-            <img src="/src/assets/default-burger.jpeg"  className="card_image" alt=""/>
-            <div className="card_overlay">
-                <div className="card_container">
-                    <div className="card_container_header">
-                        <div className="card_container_header_container">
-                            <h3 className="card_container_header_container-name">{name}</h3>
-                            <span className="card_container_header_container-price">{price} €</span>
+        <div className={styles.card}>
+            <img src="/assets/default-burger.jpeg"  className={styles.card_image} alt=""/>
+            <div className={styles.card_overlay}>
+                <div className={styles.card_container}>
+                    <div>
+                        <div className={styles.card_container_text}>
+                            <h3>{name}</h3>
+                            <span>{price} €</span>
                         </div>
                     </div>
                 </div>
-                <p className="card_description">
-                    {description}
-                </p>
-                <button className="card_button" onClick={onClickHandler}>
-                    Add to Cart
-                </button>
+                <div className={styles.card_description}>
+                    <p className={styles.card_description_text}>
+                        {description}
+                    </p>
+                    <button className={styles.card_button} onClick={onClickHandler}>
+                        Add to Cart
+                    </button>
+                </div>
             </div>
         </div>
     );
