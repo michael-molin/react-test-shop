@@ -21,9 +21,9 @@ function Product({id, image, name, description, price}: ProductInterface) {
         <div className={styles.card}>
             <img src="/assets/default-burger.jpeg"  className={styles.card_image} alt=""/>
             <div className={styles.card_overlay}>
-                <div className={styles.card_container}>
+                <div className={styles.card_header}>
                     <div>
-                        <div className={styles.card_container_text}>
+                        <div className={styles.card_header_text}>
                             <h3>{name}</h3>
                             <span>{price} €</span>
                         </div>
@@ -41,6 +41,5 @@ function Product({id, image, name, description, price}: ProductInterface) {
         </div>
     );
 }
-
 
 export default Product;

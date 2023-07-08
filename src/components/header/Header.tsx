@@ -1,5 +1,5 @@
 import React from "react";
-import CartTotal from "../cart/cartTotal/CartTotal";
+import Cart from "../cart/Cart";
 import styles from './Header.module.scss'
 function Header() {
     return (
@@ -9,7 +9,7 @@ function Header() {
                 <strong>Header</strong>
             </div>
             <div className={styles.header_element}>
-                <CartTotal />
+                <Cart />
             </div>
         </div>
     )

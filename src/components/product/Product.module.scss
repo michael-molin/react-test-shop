@@ -18,26 +18,26 @@
         background-color: white;
         transform: translateY(100%);
         transition: .2s ease-in-out;
+        height:auto;
     }
 
-    &_container {
+    &_header {
         position: relative;
         display: flex;
         align-items: center;
-        padding: .5em 1em;
+        padding: .5em .5em;
         border-top-left-radius: 15px;
         border-top-right-radius: 15px;
         background-color: white;
         transform: translateY(-100%);
         transition: .2s ease-in-out;
         &_text {
+            color: black;
             h3 {
                 font-size: .8em;
-                color: black;
             }
             span {
                 font-size: .6em;
-                color: black;
             }
         }
     }
@@ -45,7 +45,6 @@
     &_description {
         &_text {
             font-size: .6em;
-            margin: 0;
             color: black;
         }
     }
@@ -71,16 +70,19 @@
         transition: all 0.25s;
         box-shadow: none;
     }
-
 }
 
 .card:hover {
     .card{
         &_header {
             transform: translateY(0);
+            border-top-left-radius: 15px;
+            border-top-right-radius: 15px;
         }
         &_overlay {
             transform: translateY(0);
+            border-top-left-radius: 15px;
+            border-top-right-radius: 15px;
         }
     }
 }

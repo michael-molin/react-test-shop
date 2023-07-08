@@ -1,0 +1,29 @@
+.cart {
+    color:black;
+    display:flex;
+    align-items: center;
+
+    &_header {
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+    }
+
+    &_info {
+        font-size: .8em;
+        display:flex;
+        flex-direction: column;
+    }
+
+    &_icon {
+        margin: .5em;
+        background-color: white;
+        img {
+            width: 25px;
+            height: 25px;
+        }
+    }
+}
+
+
+

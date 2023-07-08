@@ -1,6 +1,4 @@
 import styles from './Category.module.scss'
-
-
 type Props = {
     title: string,
     image: string,
