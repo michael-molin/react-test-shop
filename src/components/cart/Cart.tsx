@@ -5,12 +5,11 @@ import cartIcon from '../../assets/cart.png'
 import Image from "next/image";
 import ExtendedCart from "@/components/cart/extended-cart/ExtendedCart";
 
-
 function Cart() {
     const {cartState} = useContext(CartContext)
-    const [extendCart, setExtendCart] = useState(false);
+    const [extendCartState, setExtendCartState] = useState(false);
     const openCart : MouseEventHandler = ()=> {
-        setExtendCart(!extendCart);
+        setExtendCartState(!extendCartState);
     }
 
     let cartItems = 0;
@@ -32,8 +31,11 @@ function Cart() {
                     Total: {total.toFixed(2)} €
                 </div>
             </div>
-
-            <ExtendedCart handlerModal={extendCart} />
+    
+            {(extendCartState === true) &&
+                <ExtendedCart handlerModal={setExtendCartState} />
+            }
+           
         </div>
     )
 }
