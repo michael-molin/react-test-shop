@@ -4,6 +4,7 @@ import styles from './Cart.module.scss';
 import cartIcon from '../../assets/cart.png'
 import Image from "next/image";
 import ExtendedCart from "@/components/cart/extended-cart/ExtendedCart";
+import { CartItemInterface } from "./CartItemInterface";
 
 function Cart() {
     const {cartState} = useContext(CartContext)
@@ -14,8 +15,12 @@ function Cart() {
 
     let cartItems = 0;
     let total = 0;
-    if(cartState !== undefined && cartState.products !== undefined) {
-        cartItems = cartState.products.length
+    if(cartState !== undefined && cartState.products !== undefined && cartState.products.length > 0) {
+        cartState.products.map((product : CartItemInterface)  => {
+            if(product !== null) {
+                cartItems = cartItems + product.quantity;
+            }
+        });
         total = cartState.total
     }
     return (

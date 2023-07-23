@@ -1,0 +1,17 @@
+.item {
+    width: 100%;
+    display:flex;
+    justify-content: space-around;
+    align-items: center;
+    padding:1em 0;
+
+    &_btn {
+        input{
+            padding:.4em .2em;
+            border:none;
+            background-color: white;
+            color:red;
+            margin: .5em 0; 
+        }
+    }
+}

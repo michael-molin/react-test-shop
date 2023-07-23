@@ -1,15 +1,16 @@
 import React, {MouseEventHandler, useContext} from 'react';
 import {ProductInterface} from "./Interface";
+import { CartItemInterface } from '../cart/CartItemInterface';
 import CartContext from "@/store/CartContext";
 import styles from './Product.module.scss';
 
 function Product({id, image, name, description, price}: ProductInterface) {
     const {dispatch} = useContext(CartContext);
     const onClickHandler: MouseEventHandler = () => {
-        const product : ProductInterface ={
+        const product : CartItemInterface ={
             name : name,
             image : image,
-            description: description,
+            quantity: 1,
             price : price,
             id : id
         }
