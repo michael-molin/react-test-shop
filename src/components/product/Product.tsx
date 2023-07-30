@@ -14,7 +14,6 @@ function Product({id, image, name, description, price}: ProductInterface) {
             price : price,
             id : id
         }
-
         dispatch({type: 'ADD_TO_CART', product})
     };
 

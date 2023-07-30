@@ -17,7 +17,7 @@ function Cart() {
     let total = 0;
     if(cartState !== undefined && cartState.products !== undefined && cartState.products.length > 0) {
         cartState.products.map((product : CartItemInterface)  => {
-            if(product !== null) {
+            if(product !== undefined && product.name) {
                 cartItems = cartItems + product.quantity;
             }
         });

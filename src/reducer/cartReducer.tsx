@@ -1,10 +1,12 @@
 import { CartItemInterface } from "@/components/cart/CartItemInterface"
 export const cartReducer = (state : any, action : any) => {
     if(action.type === 'ADD_TO_CART') {
-        let cartItems = [...state.products]
-        const itemIndex = cartItems.findIndex(el => {
-            return el.name === action.product.name
-          })
+        let cartItems = [...state.products];
+        const itemIndex = cartItems.findIndex((el : CartItemInterface) => {
+            if(el) {
+                return el.name === action.product.name;
+            }
+        })
         if(itemIndex === -1) {
             return {
                 products: cartItems.concat(action.product),
@@ -23,10 +25,12 @@ export const cartReducer = (state : any, action : any) => {
     }
     
     if(action.type === 'REMOVE_QNT_FROM_CART') {
-        let cartItems = [...state.products]
-        const itemIndex = cartItems.findIndex(el => {
-            return el.name === action.product.name
-          })
+        let cartItems = [...state.products];
+        const itemIndex = cartItems.findIndex((el : CartItemInterface) => {
+            if(el) {
+                return el.name === action.product.name;
+            }
+        })
         if(itemIndex === -1) {
             return {
                 products: cartItems,
@@ -34,16 +38,12 @@ export const cartReducer = (state : any, action : any) => {
             }
         }
         cartItems = cartItems.map((item, i) => {
-            if(itemIndex === i){
-                if(item.quantity > 1) {
-                    return { ...item, quantity: item.quantity - 1 }
-                }
-                return null;
+            if(itemIndex === i && item.quantity > 1){
+                return { ...item, quantity: item.quantity - 1 };
+            } else if(itemIndex !== i) {
+                return {...item};
             }
-            
-            return {...item}
-        });
-
+        })
         return {
             products: cartItems,
             total: state.total - action.product.price
@@ -51,10 +51,13 @@ export const cartReducer = (state : any, action : any) => {
     }
 
     if(action.type === 'REMOVE_FROM_CART') {
-        let cartItems = [...state.products]
-        const itemIndex = cartItems.findIndex(el => {
-            return el.name === action.product.name
-          })
+        let cartItems = [...state.products];
+        let deletingQuantity = 1;
+        const itemIndex = cartItems.findIndex((el : CartItemInterface) => {
+            if(el) {
+                return el.name === action.product.name;
+            }
+        })
         if(itemIndex === -1) {
             return {
                 products: cartItems,
@@ -62,14 +65,14 @@ export const cartReducer = (state : any, action : any) => {
             }
         }
         cartItems = cartItems.map((item, i) => {
-            if(itemIndex === i){
-                return null;
-            } 
-            return { ...item }
+            if(itemIndex !== i){
+                return { ...item };
+            }
+            deletingQuantity = item.quantity;
         });
         return {
             products: cartItems,
-            total: state.total - action.product.price
+            total: state.total - (action.product.price * deletingQuantity)
         }
     }
 

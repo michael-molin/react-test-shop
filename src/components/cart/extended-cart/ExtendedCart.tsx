@@ -30,14 +30,14 @@ function ExtendedCart({handlerModal} : Props) {
                             Qnty
                         </div>
                         <div>
-                        Price
+                            Price
                         </div>
                         <div className={styles.modal_body_item_btn}> 
                             Operations
                         </div>
                     </div>
                         {(cartState.products.length > 0) && cartState.products.map((item: CartItemInterface) => {
-                            if(item) {
+                            if(item && item.name) {
                                 return (
                                     <ItemCart key={Math.random()} id={item.id} name={item.name} image={''} quantity={item.quantity} price={item.price} />
                                 )
