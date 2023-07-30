@@ -1,5 +1,7 @@
-import { CartItemInterface } from "@/components/cart/CartItemInterface"
-export const cartReducer = (state : any, action : any) => {
+import { CartItemInterface, CartIterface } from "@/components/cart/CartItemInterface"
+import { ActionInterface } from "./ReducerInterface";
+export const cartReducer = (state : CartIterface, action : ActionInterface) => {
+    console.log(state, action)
     if(action.type === 'ADD_TO_CART') {
         let cartItems = [...state.products];
         const itemIndex = cartItems.findIndex((el : CartItemInterface) => {
