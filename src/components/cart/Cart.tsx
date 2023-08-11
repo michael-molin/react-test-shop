@@ -9,9 +9,7 @@ import { CartItemInterface } from "./CartItemInterface";
 function Cart() {
     const {cartState} = useContext(CartContext)
     const [extendCartState, setExtendCartState] = useState(false);
-    const openCart : MouseEventHandler = ()=> {
-        setExtendCartState(!extendCartState);
-    }
+    const openCart : MouseEventHandler = ()=> {setExtendCartState(!extendCartState);}
 
     let cartItems = 0;
     let total = 0;
@@ -36,11 +34,7 @@ function Cart() {
                     Total: {total.toFixed(2)} €
                 </div>
             </div>
-    
-            {(extendCartState === true) &&
-                <ExtendedCart handlerModal={setExtendCartState} />
-            }
-           
+            {extendCartState && <ExtendedCart handlerModal={setExtendCartState} />}
         </div>
     )
 }

@@ -39,12 +39,14 @@ export const cartReducer = (state : CartIterface, action : ActionInterface) => {
                 total: state.total
             }
         }
+        // @ts-ignore
         cartItems = cartItems.map((item, i) => {
             if(itemIndex === i && item.quantity > 1){
                 return { ...item, quantity: item.quantity - 1 };
             } else if(itemIndex !== i) {
                 return {...item};
             }
+
         })
         return {
             products: cartItems,
@@ -66,6 +68,7 @@ export const cartReducer = (state : CartIterface, action : ActionInterface) => {
                 total: state.total
             }
         }
+        // @ts-ignore
         cartItems = cartItems.map((item, i) => {
             if(itemIndex !== i){
                 return { ...item };

@@ -6,9 +6,7 @@ import { CartItemInterface } from "../CartItemInterface";
 import CartContext from "@/store/CartContext";
 import ItemCart from "./item-cart/ItemCart";
 
-type Props = {
-    handlerModal : Function
-}
+type Props = { handlerModal : Function }
 function ExtendedCart({handlerModal} : Props) { 
     const {cartState} = useContext(CartContext)
         return (

@@ -18,6 +18,7 @@ type Props = {
 }
 
 const CartProvider  = ({children} : Props) => {
+    // @ts-ignore
     const [cartState, dispatch] = useReducer(cartReducer, defaultCartState)
     return (
         <CartContext.Provider value={{cartState, dispatch }}>

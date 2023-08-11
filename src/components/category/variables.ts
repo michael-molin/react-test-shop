@@ -1,19 +1,22 @@
 import {CategoryInterface} from "./Interface";
+const burger = 'Burger';
+const fries = 'Fries';
+const beverage = 'Beverage'
 
 const categories: CategoryInterface[] = [
     {
         id:'1',
-        title: "Burger",
+        title: burger,
         image: "/assets/default-burger.jpeg",
     },
     {
         id : '2',
-        title: 'Fries',
+        title: fries,
         image: '/assets/default-burger.jpeg',
     },
     {
         id : '3',
-        title: 'Beverage',
+        title: beverage,
         image: '/assets/default-burger.jpeg',
     }
 ];

@@ -3,5 +3,6 @@ export interface ProductInterface {
     image: string,
     name: string,
     price : number,
-    description : string
+    description : string,
+    foodType: string
 }
