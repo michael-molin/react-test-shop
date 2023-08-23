@@ -1,6 +1,6 @@
 import React, {MouseEventHandler, useContext} from 'react';
-import {ProductInterface} from "./Interface";
-import { CartItemInterface } from '../cart/CartItemInterface';
+import {ProductInterface} from "./Product.Interface";
+import { CartItemInterface } from '../cart/Cart.Interface';
 import CartContext from "@/store/CartContext";
 import styles from './Product.module.scss';
 

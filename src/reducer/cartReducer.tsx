@@ -1,5 +1,6 @@
-import { CartItemInterface, CartIterface } from "@/components/cart/CartItemInterface"
+import { CartItemInterface, CartIterface } from "@/components/cart/Cart.Interface"
 import { ActionInterface } from "./ReducerInterface";
+
 export const cartReducer = (state : CartIterface, action : ActionInterface) => {
     console.log(state, action)
     if(action.type === 'ADD_TO_CART') {
@@ -39,15 +40,15 @@ export const cartReducer = (state : CartIterface, action : ActionInterface) => {
                 total: state.total
             }
         }
-        // @ts-ignore
         cartItems = cartItems.map((item, i) => {
-            if(itemIndex === i && item.quantity > 1){
+            if(itemIndex === i){
                 return { ...item, quantity: item.quantity - 1 };
-            } else if(itemIndex !== i) {
+            } else {
                 return {...item};
             }
-
         })
+
+        cartItems = cartItems.filter((item) => item.quantity > 0);
         return {
             products: cartItems,
             total: state.total - action.product.price
@@ -68,13 +69,17 @@ export const cartReducer = (state : CartIterface, action : ActionInterface) => {
                 total: state.total
             }
         }
-        // @ts-ignore
+        
         cartItems = cartItems.map((item, i) => {
-            if(itemIndex !== i){
-                return { ...item };
+            if(itemIndex === i){
+                deletingQuantity = cartItems[itemIndex].quantity;
+                return { ...item, quantity: 0 };
+            } else {
+                return {...item};
             }
-            deletingQuantity = item.quantity;
-        });
+        })
+        cartItems = cartItems.filter((item) => item.quantity > 0);
+
         return {
             products: cartItems,
             total: state.total - (action.product.price * deletingQuantity)

@@ -4,7 +4,7 @@ import styles from './Cart.module.scss';
 import cartIcon from '../../assets/cart.png'
 import Image from "next/image";
 import ExtendedCart from "@/components/cart/extended-cart/ExtendedCart";
-import { CartItemInterface } from "./CartItemInterface";
+import { CartItemInterface } from "./Cart.Interface";
 
 function Cart() {
     const {cartState} = useContext(CartContext)

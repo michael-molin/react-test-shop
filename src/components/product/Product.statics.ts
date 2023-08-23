@@ -1,4 +1,4 @@
-import {ProductInterface} from "@/components/product/Interface";
+import {ProductInterface} from "@/components/product/Product.Interface";
 
 export const productsList: ProductInterface[] = [
     {

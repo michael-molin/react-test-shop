@@ -2,7 +2,7 @@ import React, {useContext} from "react";
 import styles from './ExtendedCart.module.scss';
 import Image from "next/image";
 import cartIcon from '../../../assets/cart.png';
-import { CartItemInterface } from "../CartItemInterface";
+import { CartItemInterface } from "../Cart.Interface";
 import CartContext from "@/store/CartContext";
 import ItemCart from "./item-cart/ItemCart";
 

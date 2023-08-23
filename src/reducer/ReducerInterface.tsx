@@ -1,4 +1,4 @@
-import { CartItemInterface } from "@/components/cart/CartItemInterface";
+import { CartItemInterface } from "@/components/cart/Cart.Interface";
 
 export interface ActionInterface {
     type: string,

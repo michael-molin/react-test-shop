@@ -1,6 +1,6 @@
 import React, {useReducer} from "react";
 import CartContext from "./CartContext";
-import {ProductInterface} from "@/components/product/Interface";
+import {ProductInterface} from "@/components/product/Product.Interface";
 import {cartReducer} from "@/reducer/cartReducer";
 
 type cartInterface = {
